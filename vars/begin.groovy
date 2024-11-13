@@ -2,7 +2,7 @@ def call(String sam) {
     pipeline {
         agent {
             kubernetes {
-                defaultContainer 'kaniko'
+                defaultContainer 'ubuntu'
                 yaml '''
 kind: Pod
 spec:
