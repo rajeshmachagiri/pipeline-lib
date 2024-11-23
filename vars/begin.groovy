@@ -20,7 +20,7 @@ spec:
         stages {
             stage('Example') {
                 steps {
-                    echo 'Hello World'
+                    echo 'Hello World sharedlib'
                 }
             }
         }
