@@ -24,7 +24,7 @@ spec:
             stage('Example') {
                 steps {
                     script{
-                        def sample = new stepsdef()
+                        def sample = new stepsdef(this)
                         sample.shinvoke("echo devil")
                     }
                 }
