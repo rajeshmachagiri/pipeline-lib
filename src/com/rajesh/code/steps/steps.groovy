@@ -1,7 +1,7 @@
 package com.rajesh.code.steps
 
 class steps {
-    void sh(String sam) {
+    void shinvoke(String sam) {
         sh sam
     }
 }
