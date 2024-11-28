@@ -24,7 +24,7 @@ spec:
                 steps {
                     script{
                         def sample = new steps()
-                        sample.shinvoke('echo devil')
+                        sample.shinvoke("echo devil")
                     }
                 }
             }
