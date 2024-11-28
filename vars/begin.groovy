@@ -1,3 +1,5 @@
+import com.rajesh.code.steps.steps
+
 def call(String sam) {
     pipeline {
         agent {
