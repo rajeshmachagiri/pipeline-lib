@@ -9,8 +9,8 @@ void shinvoke(String sam) {
 //}
 
 void gitclone(Map info){
-        Map info = info
-        if(info.branch == null || info.credsID == null || info.url == null  ) {
+        Map infoconfig = info
+        if(infoconfig.branch == null || infoconfig.credsID == null || infoconfig.url == null  ) {
                 error "info map doesnt have proper values"
         }
         checkout scmGit(branches: [[name: "*/${info.branch}"]], userRemoteConfigs: [[credentialsId: "${info.credsID}", url: info.url]])
