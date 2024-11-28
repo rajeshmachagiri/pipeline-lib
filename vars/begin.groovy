@@ -1,4 +1,4 @@
-import com.rajesh.code.steps.stepsdef
+import com.rajesh.code.steps.*
 
 def call(String sam) {
     pipeline {
