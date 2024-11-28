@@ -1,6 +1,6 @@
 package com.rajesh.code.steps
 
-class steps {
+class stepsdef {
     void shinvoke(String sam) {
         sh sam
     }

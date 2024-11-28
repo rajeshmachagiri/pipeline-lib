@@ -1,4 +1,5 @@
 import com.rajesh.code.steps.steps
+import com.rajesh.code.steps.stepsdef
 
 def call(String sam) {
     pipeline {
@@ -23,7 +24,7 @@ spec:
             stage('Example') {
                 steps {
                     script{
-                        def sample = new steps()
+                        def sample = new stepsdef()
                         sample.shinvoke("echo devil")
                     }
                 }
