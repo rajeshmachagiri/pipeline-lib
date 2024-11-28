@@ -20,7 +20,10 @@ spec:
         stages {
             stage('Example') {
                 steps {
-                    echo 'Hello World sharedlib'
+                    script{
+                        def sample = new steps()
+                        sample.sh("echo devil")
+                    }
                 }
             }
         }
