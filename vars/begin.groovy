@@ -1,6 +1,6 @@
 import com.rajesh.code.steps.*
-
 def call(String sam) {
+    def sample = new steps()
     pipeline {
         agent {
             kubernetes {
@@ -22,9 +22,17 @@ spec:
         stages {
             stage('Example') {
                 steps {
-                    script{
-                        def sample = new steps()
+                    script {
                         sample.shinvoke("echo devil")
+                    }
+                }
+            }
+            stage('checkout') {
+                steps {
+                    script{
+                        sample.gitclone(url: "https://github.com/rajeshmachagiri/application.git",
+                        branch: "main",
+                        credsID: "github-app-rajesh-jenkins")
                     }
                 }
             }
