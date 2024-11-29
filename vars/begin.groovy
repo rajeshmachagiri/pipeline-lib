@@ -30,12 +30,10 @@ spec:
             stage('checkout') {
                 steps {
                     script{
-                        sample.gitclone(url: "https://github.com/rajeshmachagiri/application.git",
+                        sample.gitclone([url: "https://github.com/rajeshmachagiri/application.git",
                         branch: "main",
-                        credsID: "github-app-rajesh-jenkins")
+                        credsID: "github-app-rajesh-jenkins"])
                         sample.shinvoke("pwd")
-
-
                         sample.runwithcreds([credsID: "own-creds",pass: "PASS",user: "USER"],{sample.shinvoke("ls")})
 
                     }
