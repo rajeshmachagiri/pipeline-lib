@@ -9,6 +9,7 @@ def call(String sam) {
     def npm = new Npm()
     AWS cloudobj = new Awsaction()
     Dockermain dockerobj = new Docker()
+    String ans
     pipeline {
         agent {
             kubernetes {
@@ -60,17 +61,10 @@ spec:
                     script{
                           obj.shellsh("ls ; pwd ")
                           obj.cd("./application/sample-nodejs/", {npm.npmintall()})
-                          obj.shellsh('''apt update
-apt install curl -y
-apt install unzip -y
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-./aws/install
-apt install groff -y
-apt install mandoc -y
-''')
-                        obj.shellsh("aws help")
-                        cloudobj.command("aws s3 ls")
+                          cloudobj.init()
+                          obj.shellsh("aws help")
+                          ans = cloudobj.command({obj.shstdoutput("aws ecr get-login-password --region eu-central-1")})
+
 //                        cloudobj.command("aws ecr get-login-password --region eu-central-1")
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
@@ -84,7 +78,7 @@ apt install mandoc -y
                             script {
 
                                 obj.shellsh("docker help")
-//                                obj.shellsh("docker pull ubuntu")
+                                obj.shellsh("echo ${ans}")
 //                                obj.shellsh("docker tag ubuntu 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 //                                obj.shellsh("docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 

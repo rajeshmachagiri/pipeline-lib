@@ -26,9 +26,14 @@ apt install mandoc -y
     }
 
     @Override
-    def command(String command) {
-        obj.withAWScreds(creds,region,command)
+    def command(Closure sample) {
+        obj.withAWScreds(creds,region,sample)
     }
+
+//    @Override
+//    def commandrtn(String command) {
+//        obj.shstdoutput(command)
+//    }
 //    @Override
 //    def command(Map sample ,String command) {
 //        obj.withcreds(sample , { obj.shellsh(command)})

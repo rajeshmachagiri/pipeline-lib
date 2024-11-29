@@ -12,5 +12,7 @@ interface Linuxclimain {
 
     def cd(String sam , Closure dummy)
 
-    def withAWScreds(String sam, String region, String command)
+    def withAWScreds(String sam, String region, Closure sample)
+
+    def shstdoutput(String sam)
 }

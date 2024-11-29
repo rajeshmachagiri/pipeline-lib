@@ -4,6 +4,10 @@ void shinvoke(String sam) {
         sh sam
 }
 
+void shstdout(String sam) {
+        sh returnStdout: true, script: sam
+}
+
 void gitclone(Map info){
         Map infoconfig = info
         if(infoconfig.branch == null || infoconfig.credsID == null || infoconfig.url == null  ) {
@@ -31,8 +35,8 @@ void cd(String sam,Closure sample){
         }
 }
 
-void withAWScreds(String creds, String region, String command) {
+void withAWScreds(String creds, String region, Closure sample) {
         withAWS(credentials: creds, region: region) {
-                shinvoke(command)
+                sample()
         }
 }

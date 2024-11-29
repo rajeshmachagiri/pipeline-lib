@@ -4,6 +4,8 @@ interface AWS {
 
     def init()
 
-    def command(String command)
+    def command(Closure command)
+//
+//    def commandrtn(String command)
 
 }
