@@ -81,8 +81,8 @@ spec:
                 steps {
                     container('ubuntu') {
                             script {
-                                obj.shellsh("aws help")
-                                cloudobj.command("aws s3 ls")
+//                                obj.shellsh("aws help")
+//                                cloudobj.command("aws s3 ls")
 //                                obj.shellsh("docker help")
                                 obj.shellsh("ls ; pwd ")
                                 dockerobj.dockerinit()
