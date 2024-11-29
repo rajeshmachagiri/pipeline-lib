@@ -80,7 +80,7 @@ spec:
             stage('Docker') {
 
                 steps {
-                    container('dind') {
+                    container('ubuntu') {
                             script {
 //                                obj.shellsh("aws help")
 //                                cloudobj.command("aws s3 ls")
