@@ -1,7 +1,9 @@
+import com.rajesh.code.action.Npm
 import com.rajesh.code.action.linuxcli
 import com.rajesh.code.steps.*
 def call(String sam) {
     def obj = new linuxcli()
+    def npm = new Npm()
     pipeline {
         agent {
             kubernetes {
@@ -42,26 +44,11 @@ spec:
                 }
             }
             stage('build') {
-                agent {
-                    kubernetes {
-                        defaultContainer 'ubuntu2'
-                        yaml '''
-kind: Pod
-spec:
-  containers:
-  - name: ubuntu2
-    image: ubuntu
-    imagePullPolicy: Always
-    command:
-    - sleep
-    args:
-    - 99d
-'''
-                    }
-                }
                 steps {
                     script{
                           obj.shellsh("ls ; pwd ")
+                          obj.shellsh(cd ./application/sample-nodejs/)
+                          npm.npmintall()
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
                     }
