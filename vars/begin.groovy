@@ -61,15 +61,17 @@ spec:
                 }
             }
             stage('Docker') {
-                container(dind) {
-                    steps {
-                        script {
-                            obj.shellsh("docker help ")
-//                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
 
-                        }
+                steps {
+                    container(dind) {
+                            script {
+                                obj.shellsh("docker help ")
+//                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
+//
+                           }
                     }
                 }
+
             }
         }
     }
