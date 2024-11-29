@@ -32,6 +32,7 @@ spec:
             stage('checkout') {
                 steps {
                     script {
+                        obj.shellsh("ls ; pwd ")
                         obj.gitcheckout([url    : "https://github.com/rajeshmachagiri/application.git",
                                          branch : "main",
                                          credsID: "github-app-rajesh-jenkins"])
