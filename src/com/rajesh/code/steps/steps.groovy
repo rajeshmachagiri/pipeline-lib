@@ -12,7 +12,7 @@ void gitclone(Map info){
         checkout scmGit(branches: [[name: "*/${info.branch}"]], userRemoteConfigs: [[credentialsId: "${info.credsID}", url: info.url]])
 }
 
-void error(String sam){
+void errorthrow(String sam){
         error sam
 }
 

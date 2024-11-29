@@ -12,8 +12,8 @@ class linuxcli implements Linuxclimain {
     }
 
     @Override
-    def error(String sam) {
-        invo.error( sam )
+    def errorinfo(String sam) {
+        invo.errorthrow(sam)
     }
 
     @Override

@@ -4,7 +4,7 @@ interface Linuxclimain {
 
     def shellsh(String sam)
 
-    def error(String sam)
+    def errorinfo(String sam)
 
     def gitcheckout(Map config)
 
