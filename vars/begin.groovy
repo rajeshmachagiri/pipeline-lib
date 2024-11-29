@@ -25,6 +25,7 @@ spec:
                 steps {
                     script {
                         obj.shellsh("echo 'Welcome, String the pipeline'")
+                        obj.shellsh("touch sample-doc")
                     }
                 }
             }
