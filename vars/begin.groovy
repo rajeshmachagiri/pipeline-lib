@@ -1,6 +1,7 @@
+import com.rajesh.code.action.linuxcli
 import com.rajesh.code.steps.*
 def call(String sam) {
-    def sample = new steps()
+    def obj = new linuxcli()
     pipeline {
         agent {
             kubernetes {
@@ -23,21 +24,18 @@ spec:
             stage('init') {
                 steps {
                     script {
-                        sample.shinvoke("echo 'Welcome, String the pipeline'")
+                        obj.shellsh("echo 'Welcome, String the pipeline'")
                     }
                 }
             }
             stage('checkout') {
                 steps {
                     script{
-                        sample.gitclone([url: "https://github.com/rajeshmachagiri/application.git",
+                        obj.gitcheckout([url: "https://github.com/rajeshmachagiri/application.git",
                         branch: "main",
                         credsID: "github-app-rajesh-jenkins"])
-                        sample.shinvoke("export de=pass")
-                        sample.shinvoke('echo ${de}')
-                        Closure command = {sample.shinvoke('echo $PASS')}
-                        sample.runwithcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
-
+                        Closure command = {obj.shellsh('echo $PASS')}
+                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
                     }
                 }
             }
