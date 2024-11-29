@@ -56,8 +56,8 @@ spec:
                           obj.shellsh("ls ; pwd ")
                           obj.cd("./application/sample-nodejs/", {npm.npmintall()})
                           obj.shellsh('''apt update
-apt install curl
-apt install unzip
+apt install curl -y
+apt install unzip -y
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 ./aws/install
