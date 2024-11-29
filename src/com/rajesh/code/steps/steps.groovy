@@ -4,10 +4,6 @@ void shinvoke(String sam) {
         sh sam
 }
 
-//void gitclone(String url, String branch,String credsID){
-//        checkout scmGit(branches: [[name: "*/${branch}"]], userRemoteConfigs: [[credentialsId: "${credsID}", url: url]])
-//}
-
 void gitclone(Map info){
         Map infoconfig = info
         if(infoconfig.branch == null || infoconfig.credsID == null || infoconfig.url == null  ) {
@@ -16,3 +12,15 @@ void gitclone(Map info){
         checkout scmGit(branches: [[name: "*/${info.branch}"]], userRemoteConfigs: [[credentialsId: "${info.credsID}", url: info.url]])
 }
 
+void error(String sam){
+        error sam
+}
+
+void runwithcreds(Map creds, Closure sample ){
+        if(creds.credsID == null || creds.pass == null || creds.user == null ){
+                error "need more info here"
+        }
+        withCredentials([usernamePassword(credentialsId: creds.credsID, passwordVariable: creds.pass, usernameVariable: creds.user)]) {
+                sample.call()
+        }
+}
