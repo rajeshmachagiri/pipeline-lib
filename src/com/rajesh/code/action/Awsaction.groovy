@@ -4,8 +4,8 @@ import com.rajesh.code.rules.AWS
 import com.rajesh.code.rules.Linuxclimain
 
 class Awsaction implements AWS {
-    String creds
-    String region
+    String creds = "aws-own-creds"
+    String region = "eu-west-1"
     Awsaction(String creds = "aws-own-creds",String region = "eu-west-1"){
         this.creds= creds
         this.region = region
