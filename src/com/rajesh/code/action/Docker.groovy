@@ -11,8 +11,7 @@ Linuxclimain sample = new linuxcli()
         sample.shellsh('''apt update
 apt install curl -y
 apt install unzip -y
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+sudo apt install docker.io
 docker ps
 ''')
     }
