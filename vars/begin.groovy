@@ -20,6 +20,8 @@ spec:
   - name: ubuntu
     image: ubuntu
     imagePullPolicy: Always
+    securityContext:
+      privileged: true
     command:
     - sleep
     args:
