@@ -86,7 +86,7 @@ apt install mandoc -y
 //                                cloudobj.command("aws s3 ls")
 //                                obj.shellsh("docker help")
                                 obj.shellsh("docker pull ubuntu")
-                                obj.shellsh("docker tag ubuntu 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:latest")
+                                obj.shellsh("docker tag ubuntu 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
                                 obj.shellsh("docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 
                                 dockerobj.dockerinit()

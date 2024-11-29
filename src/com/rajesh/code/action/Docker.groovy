@@ -9,12 +9,18 @@ Linuxclimain sample = new linuxcli()
     @Override
     def dockerinit() {
         sample.shellsh('''apt update
-apt install curl -y                                                             
-apt install unzip -y
-apt install docker.io -y
-dockerd                                                                                                                     
-chmod 777 /var/run/docker.sock
-docker ps
+                # Install Docker
+                apt-get update
+                apt-get install -y \\
+                    apt-transport-https \\
+                    ca-certificates \\
+                    curl \\
+                    software-properties-common
+                curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+                add-apt-repository \\
+                    "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+                apt-get update
+                apt-get install -y docker-ce
 ''')
     }
 
