@@ -23,7 +23,7 @@ spec:
             stage('init') {
                 steps {
                     script {
-                        sample.shinvoke("Welcome, String the pipeline")
+                        sample.shinvoke('Welcome, String the pipeline')
                     }
                 }
             }
