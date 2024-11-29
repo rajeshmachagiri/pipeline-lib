@@ -20,13 +20,13 @@ spec:
             }
         }
         stages {
-            stage('init') {
-                steps {
-                    script {
-                        sample.shinvoke('Welcome, String the pipeline')
-                    }
-                }
-            }
+//            stage('init') {
+//                steps {
+//                    script {
+//                        sample.shinvoke('Welcome, String the pipeline')
+//                    }
+//                }
+//            }
             stage('checkout') {
                 steps {
                     script{
