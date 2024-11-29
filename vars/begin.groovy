@@ -47,7 +47,7 @@ spec:
                 steps {
                     script{
                           obj.shellsh("ls ; pwd ")
-                          obj.cd("/application/sample-nodejs/", {npm.npmintall()})
+                          obj.cd("./application/sample-nodejs/", {npm.npmintall()})
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
                     }
