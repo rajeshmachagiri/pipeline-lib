@@ -79,9 +79,9 @@ spec:
                                 obj.shellsh("docker help")
                                 String loginCmd = """\
             set +x
-            echo ${ans} | docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com
+            echo ${ans}|docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com
         """.stripIndent().toString()
-                                obj.shellsh(loginCmd)
+                                  obj.shellsh(loginCmd)
 //                                obj.shellsh("docker tag ubuntu 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 //                                obj.shellsh("docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 
