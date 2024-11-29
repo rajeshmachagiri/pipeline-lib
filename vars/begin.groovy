@@ -70,10 +70,10 @@ unzip awscliv2.zip
             stage('Docker') {
 
                 steps {
-                    container('dind') {
+                    container('ubuntu') {
                             script {
                                 obj.shellsh("aws help")
-                                obj.shellsh("docker help")
+//                                obj.shellsh("docker help")
                                 obj.shellsh("ls ; pwd ")
 //                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
 //
