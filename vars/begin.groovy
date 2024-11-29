@@ -21,7 +21,9 @@ spec:
     image: ubuntu
     imagePullPolicy: Always
     securityContext:
-      privileged: true
+      runAsUser: 0        # Specifies root user (UID 0)
+      runAsGroup: 0       # Specifies root group (GID 0)
+      allowPrivilegeEscalation: true 
     command:
     - sleep
     args:
