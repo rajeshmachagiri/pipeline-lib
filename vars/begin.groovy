@@ -19,6 +19,13 @@ spec:
     - sleep
     args:
     - 99d
+  - name: dind
+    image: docker:24.0-dind
+    securityContext:
+      privileged: true # Required for dind
+    env:
+     - name: DOCKER_TLS_CERTDIR
+       value: ""
 '''
             }
         }
@@ -50,6 +57,17 @@ spec:
                           obj.cd("./application/sample-nodejs/", {npm.npmintall()})
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
+                    }
+                }
+            }
+            stage('Docker') {
+                container(dind) {
+                    steps {
+                        script {
+                            obj.shellsh("docker help ")
+//                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
+
+                        }
                     }
                 }
             }
