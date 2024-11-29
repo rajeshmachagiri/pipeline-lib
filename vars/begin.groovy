@@ -62,7 +62,6 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 ./aws/install
 ''')
-                        obj.shellsh("aws help")
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
                     }
@@ -73,6 +72,7 @@ unzip awscliv2.zip
                 steps {
                     container('dind') {
                             script {
+                                obj.shellsh("aws help")
                                 obj.shellsh("docker help")
                                 obj.shellsh("ls ; pwd ")
 //                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
