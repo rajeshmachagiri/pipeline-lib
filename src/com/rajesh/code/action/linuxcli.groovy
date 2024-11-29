@@ -33,9 +33,7 @@ class linuxcli implements Linuxclimain {
 
     @Override
     def withAWScreds(String creds, String region, String command) {
-        withAWS(credentials: creds, region: region) {
-            invo.shinvoke(command)
-        }
+        invo.withAWScreds(creds,region,command)
     }
 }
 

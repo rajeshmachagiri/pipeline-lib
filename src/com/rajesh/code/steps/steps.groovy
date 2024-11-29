@@ -30,3 +30,9 @@ void cd(String sam,Closure sample){
                 sample.call()
         }
 }
+
+void withAWScreds(String creds, String region, String command) {
+        withAWS(credentials: creds, region: region) {
+                shinvoke(command)
+        }
+}
