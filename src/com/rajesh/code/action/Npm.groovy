@@ -11,7 +11,7 @@ def obj = new linuxcli()
 
     @Override
     def npmintall() {
-        obj.shellsh("npm install")
+        obj.shellsh('echo "npm install"')
     }
 
     @Override
