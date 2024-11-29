@@ -20,7 +20,7 @@ spec:
     args:
     - 99d
   - name: dind
-    image: docker:24.0-dind
+    image: docker:dind
     securityContext:
       privileged: true # Required for dind
     env:
