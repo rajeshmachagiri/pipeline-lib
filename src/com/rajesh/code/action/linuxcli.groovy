@@ -38,3 +38,5 @@ class linuxcli implements Linuxclimain {
         }
     }
 }
+
+return this
