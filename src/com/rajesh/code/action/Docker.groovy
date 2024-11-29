@@ -12,6 +12,7 @@ Linuxclimain sample = new linuxcli()
 apt install curl -y
 apt install unzip -y
 apt install docker.io -y
+chmod 777 /var/run/docker.sock
 docker ps
 ''')
     }
