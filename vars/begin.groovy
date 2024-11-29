@@ -65,7 +65,8 @@ spec:
                 steps {
                     container('dind') {
                             script {
-                                obj.shellsh("docker help ")
+                                obj.shellsh("docker help")
+                                obj.shellsh("ls ; pwd ")
 //                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
 //
                            }
