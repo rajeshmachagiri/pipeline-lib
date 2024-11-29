@@ -42,7 +42,7 @@ spec:
             stage('build') {
                 agent {
                     kubernetes {
-                        defaultContainer 'ubuntu'
+                        defaultContainer 'ubuntu2'
                         yaml '''
 kind: Pod
 spec:
