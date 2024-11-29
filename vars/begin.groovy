@@ -55,12 +55,12 @@ spec:
                     script{
                           obj.shellsh("ls ; pwd ")
                           obj.cd("./application/sample-nodejs/", {npm.npmintall()})
-                          obj.shellsh('''sudo apt update
-sudo apt install curl
-sudo apt install unzip
+                          obj.shellsh('''apt update
+apt install curl
+apt install unzip
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
-sudo ./aws/install
+./aws/install
 ''')
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
