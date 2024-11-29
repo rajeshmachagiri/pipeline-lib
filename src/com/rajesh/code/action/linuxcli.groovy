@@ -30,4 +30,11 @@ class linuxcli implements Linuxclimain {
     def cd(String sam, Closure dummy) {
         invo.cd(sam, dummy)
     }
+
+    @Override
+    def withAWScreds(String creds, String region, String command) {
+        withAWS(credentials: creds, region: region) {
+            invo.shinvoke(command)
+        }
+    }
 }

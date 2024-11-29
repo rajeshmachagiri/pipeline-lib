@@ -11,4 +11,6 @@ interface Linuxclimain {
     def withcreds(Map creds, Closure dummy)
 
     def cd(String sam , Closure dummy)
+
+    def withAWScreds(String sam, String region, String command)
 }

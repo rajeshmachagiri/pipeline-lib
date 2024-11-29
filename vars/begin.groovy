@@ -1,9 +1,12 @@
+import com.rajesh.code.action.Awsaction
 import com.rajesh.code.action.Npm
 import com.rajesh.code.action.linuxcli
 import com.rajesh.code.steps.*
+import com.rajesh.code.rules.*
 def call(String sam) {
     def obj = new linuxcli()
     def npm = new Npm()
+    AWS cloudobj = new Awsaction()
     pipeline {
         agent {
             kubernetes {
@@ -75,6 +78,7 @@ apt install mandoc -y
                     container('ubuntu') {
                             script {
                                 obj.shellsh("aws help")
+                                cloudobj.command("aws s3 ls")
 //                                obj.shellsh("docker help")
                                 obj.shellsh("ls ; pwd ")
 //                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
