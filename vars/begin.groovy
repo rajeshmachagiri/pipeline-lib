@@ -34,7 +34,7 @@ spec:
                         branch: "main",
                         credsID: "github-app-rajesh-jenkins"])
                         sample.shinvoke("pwd")
-                        sample.runwithcreds([credsID: "own-creds",pass: "PASS",user: "USER"],{sample.shinvoke('echo $PASS')})
+                        sample.runwithcreds([credsID: "own-creds",pass: "PASS",user: "USER"],{sample.shinvoke('echo $USER')})
 
                     }
                 }
