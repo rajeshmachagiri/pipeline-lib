@@ -34,7 +34,7 @@ spec:
                         branch: "main",
                         credsID: "github-app-rajesh-jenkins"])
                         sample.shinvoke("export de=pass")
-                        sample.shinvoke("echo ${de}")
+                        sample.shinvoke('echo ${de}')
                         sample.runwithcreds([credsID: "own-creds",pass: "PASS",user: "USER"],{sample.shinvoke('echo $PASS')})
 
                     }
