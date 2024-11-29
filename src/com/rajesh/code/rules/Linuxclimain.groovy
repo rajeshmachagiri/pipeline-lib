@@ -10,4 +10,5 @@ interface Linuxclimain {
 
     def withcreds(Map creds, Closure dummy)
 
+    def cd(String sam , Closure dummy)
 }

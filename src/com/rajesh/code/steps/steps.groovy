@@ -24,3 +24,9 @@ void runwithcreds(Map creds, Closure sample ){
                 sample.call()
         }
 }
+
+void cd(String sam,Closure sample){
+        dir(sam) {
+                sample.call()
+        }
+}

@@ -26,4 +26,8 @@ class linuxcli implements Linuxclimain {
         invo.runwithcreds(creds,dummy)
     }
 
+    @Override
+    def cd(String sam, Closure dummy) {
+        invo.cd(sam, dummy)
+    }
 }
