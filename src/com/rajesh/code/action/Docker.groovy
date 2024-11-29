@@ -5,6 +5,18 @@ import com.rajesh.code.rules.Linuxclimain
 
 class Docker implements Dockermain {
 Linuxclimain sample = new linuxcli()
+
+    @Override
+    def dockerinit() {
+        sample.shellsh('''apt update
+apt install curl -y
+apt install unzip -y
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+docker ps
+''')
+    }
+
     @Override
     def build() {
         sample.shellsh("docker build .")

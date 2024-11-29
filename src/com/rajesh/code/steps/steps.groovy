@@ -21,7 +21,7 @@ void runwithcreds(Map creds, Closure sample ){
                 error "need more info here"
         }
         withCredentials([usernamePassword(credentialsId: creds.credsID, passwordVariable: creds.pass, usernameVariable: creds.user)]) {
-                shinvoke(command)
+                sample.call()
         }
 }
 

@@ -4,13 +4,14 @@ import com.rajesh.code.rules.AWS
 import com.rajesh.code.rules.Linuxclimain
 
 class Awsaction implements AWS {
-    String creds = "aws-own-creds"
-    String region = "eu-west-1"
+    Linuxclimain obj = new linuxcli()
+    String creds
+    String region
     Awsaction(String creds = "aws-own-creds",String region = "eu-west-1"){
         this.creds= creds
         this.region = region
     }
-    Linuxclimain obj = new linuxcli()
+
     @Override
     def init() {
         obj.shellsh('''apt update
