@@ -61,16 +61,16 @@ spec:
                 steps {
                     script{
                           obj.shellsh("ls ; pwd ")
-                          obj.cd("./application/sample-nodejs/", {npm.npmintall()})
-                          obj.shellsh('''apt update
-apt install curl -y
-apt install unzip -y
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-./aws/install
-apt install groff -y
-apt install mandoc -y
-''')
+//                          obj.cd("./application/sample-nodejs/", {npm.npmintall()})
+//                          obj.shellsh('''apt update
+//apt install curl -y
+//apt install unzip -y
+//curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+//unzip awscliv2.zip
+//./aws/install
+//apt install groff -y
+//apt install mandoc -y
+//''')
 //                        cloudobj.command("aws ecr get-login-password --region eu-central-1")
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
