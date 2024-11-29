@@ -63,7 +63,7 @@ spec:
             stage('Docker') {
 
                 steps {
-                    container(dind) {
+                    container('dind') {
                             script {
                                 obj.shellsh("docker help ")
 //                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
