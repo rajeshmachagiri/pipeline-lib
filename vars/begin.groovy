@@ -71,7 +71,7 @@ unzip awscliv2.zip
 apt install groff -y
 apt install mandoc -y
 ''')
-                        cloudobj.command("aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com")
+                        cloudobj.command("aws ecr get-login-password --region eu-central-1")
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
                     }
