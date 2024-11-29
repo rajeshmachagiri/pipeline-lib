@@ -9,11 +9,10 @@ Linuxclimain sample = new linuxcli()
     @Override
     def dockerinit() {
         sample.shellsh('''apt update
-apt install curl -y
+apt install curl -y                                                             
 apt install unzip -y
 apt install docker.io -y
-gpasswd -a $USER docker
-dockerd
+dockerd                                                                                                                     
 chmod 777 /var/run/docker.sock
 docker ps
 ''')

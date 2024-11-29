@@ -62,15 +62,16 @@ spec:
                     script{
                           obj.shellsh("ls ; pwd ")
                           obj.cd("./application/sample-nodejs/", {npm.npmintall()})
-//                          obj.shellsh('''apt update
-//apt install curl -y
-//apt install unzip -y
-//curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-//unzip awscliv2.zip
-//./aws/install
-//apt install groff -y
-//apt install mandoc -y
-//''')
+                          obj.shellsh('''apt update
+apt install curl -y
+apt install unzip -y
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+./aws/install
+apt install groff -y
+apt install mandoc -y
+''')
+                        cloudobj.command("aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com")
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
                     }
@@ -79,12 +80,15 @@ spec:
             stage('Docker') {
 
                 steps {
-                    container('ubuntu') {
+                    container('dind') {
                             script {
 //                                obj.shellsh("aws help")
 //                                cloudobj.command("aws s3 ls")
 //                                obj.shellsh("docker help")
-                                obj.shellsh("ls ; pwd ")
+                                obj.shellsh("docker pull ubuntu")
+                                obj.shellsh("docker tag ubuntu 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:latest")
+                                obj.shellsh("docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
+
                                 dockerobj.dockerinit()
 
 //                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
