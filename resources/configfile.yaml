@@ -1,4 +1,7 @@
-eks:
-  dev:
+aws:
+  account1:
     region: 'eu-west-1'
-    clusterName: 'live-dev'
+    credsID: 'account-1-creds'
+  account2:
+    region: 'eu-west-1'
+    credsID: 'aws-own-creds'
