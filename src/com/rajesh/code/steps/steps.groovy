@@ -41,6 +41,6 @@ void withAWScreds(String creds, String region, Closure sample) {
         }
 }
 
-void libraryresource(String path){
+String libraryresource(String path){
         libraryResource path
 }
