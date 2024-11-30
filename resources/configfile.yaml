@@ -1,7 +1,4 @@
-aws:
-  acc1:
-    region: "india"
-    id: "in"
-  acc2:
-    region: "germany"
-    id: "in"
+eks:
+  dev:
+    region: 'eu-west-1'
+    clusterName: 'live-dev'
