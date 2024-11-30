@@ -86,7 +86,7 @@ spec:
 //                                obj.shellsh("docker tag ubuntu 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 //                                obj.shellsh("docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 
-//                            obj.cd("./application/sample-nodejs/", { npm.npmintall() })
+                                  obj.cd("./application/sample-nodejs/", { dockerobj.build() })
 //
                            }
                     }
