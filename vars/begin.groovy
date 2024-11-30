@@ -61,9 +61,6 @@ spec:
                     script{
                           obj.shellsh("ls ; pwd ")
                           obj.cd("./application/sample-nodejs/", {npm.npmintall()})
-                          cloudobj.init()
-                          obj.shellsh("aws help")
-                          ans = dockerobj.ecrgettoken()
 //                        cloudobj.command("aws ecr get-login-password --region eu-central-1")
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
@@ -73,9 +70,16 @@ spec:
             stage('Docker') {
 
                 steps {
+                    container('ubuntu'){
+                        script {
+                            cloudobj.init()
+                            obj.shellsh("aws help")
+                            ans = dockerobj.ecrgettoken()
+                        }
+                    }
                     container('dind') {
                             script {
-                                obj.shellsh("docker help")
+                                  obj.shellsh("docker help")
 //                                String loginCmd = """
 //            set +x ;
 //            echo ${ans.trim()}|docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com
