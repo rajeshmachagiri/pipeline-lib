@@ -18,4 +18,5 @@ awsMap["aws"].each {k,v ->
     res.put(k,sam)
 }
 
-println(res)
+
+println(res["account2"])

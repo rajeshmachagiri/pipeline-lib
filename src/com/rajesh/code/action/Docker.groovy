@@ -9,6 +9,7 @@ class Docker implements Dockermain {
     AWS cloud
     String logintoken
 
+
     Docker(Linuxclimain sample = new linuxcli(),AWS cloud = new Awsaction() ){
         this.sample = sample
         this.cloud = cloud

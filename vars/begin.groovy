@@ -8,9 +8,9 @@ import com.rajesh.code.rules.*
 def call(String sam) {
     def obj = new linuxcli()
     def npm = new Npm()
-    AWS cloudobj = new Awsaction()
-    Dockermain dockerobj = new Docker()
+    AWS cloudobj
     Configrule configfunc = new configcontrol()
+    Dockermain dockerobj
     Map conf
     String ans
     pipeline {
@@ -44,6 +44,10 @@ spec:
                     script {
                         obj.shellsh("echo 'Welcome, String the pipeline'")
                         obj.shellsh("touch sample-doc")
+                        conf = configfunc.readyamlfun()
+                        conf = configfunc.getcredsconfig(conf)
+                        cloudobj = conf["account2"]
+                        dockerobj = new Docker(obj,cloudobj)
                     }
                 }
             }
@@ -51,46 +55,42 @@ spec:
                 steps {
                     script {
                         obj.shellsh("ls ; pwd ")
-//                        obj.gitcheckout([url    : "https://github.com/rajeshmachagiri/application.git",
-//                                         branch : "main",
-//                                         credsID: "github-app-rajesh-jenkins"])
-                        conf = configfunc.readyamlfun()
-                        conf = configfunc.getcredsconfig(conf)
-                        obj.shellsh("$conf['account2']")
-
+                        obj.gitcheckout([url    : "https://github.com/rajeshmachagiri/application.git",
+                                         branch : "main",
+                                         credsID: "github-app-rajesh-jenkins"])
                     }
                 }
             }
-//            stage('build') {
-//                steps {
-//                    script{
-//                          obj.shellsh("ls ; pwd ")
-//                          obj.cd("./application/sample-nodejs/", {npm.npmintall()})
-//                    }
-//                }
-//            }
-//            stage('Docker') {
-//
-//                steps {
-//                    container('ubuntu'){
-//                        script {
-//                            cloudobj.init()
-//                            obj.shellsh("aws help")
-//                            ans = dockerobj.ecrgettoken()
-//                        }
-//                    }
-//                    container('dind') {
-//                            script {
-//                                  obj.shellsh("docker help")
-//                                  dockerobj.ecrlogin(ans)
-//                                  obj.shellsh("pwd ; ls")
-//                                  obj.cd("./application/sample-nodejs/", { dockerobj.build() })
-//                                  dockerobj.push()
-//                           }
-//                    }
-//                }
+            stage('build') {
+                steps {
+                    script{
+                          obj.shellsh("ls ; pwd ")
+                          obj.cd("./application/sample-nodejs/", {npm.npmintall()})
+                    }
+                }
+            }
+            stage('Docker') {
 
-//            }
+                steps {
+                    container('ubuntu'){
+                        script {
+                            cloudobj.init()
+                            obj.shellsh("aws help")
+                            ans = dockerobj.ecrgettoken()
+                        }
+                    }
+                    container('dind') {
+                            script {
+                                  obj.shellsh("docker help")
+                                  dockerobj.ecrlogin(ans)
+                                  obj.shellsh("pwd ; ls")
+                                  obj.cd("./application/sample-nodejs/", { dockerobj.build() })
+                                  dockerobj.push()
+                           }
+                    }
+                }
+
+            }
         }
     }
 }
