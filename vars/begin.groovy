@@ -10,7 +10,7 @@ def call(String sam) {
     def npm = new Npm()
     AWS cloudobj = new Awsaction()
     Dockermain dockerobj = new Docker()
-    Configrule configfunc = new configcontrol("sam",obj)
+    Configrule configfunc = new configcontrol()
     Map conf
     String ans
     pipeline {
@@ -54,7 +54,7 @@ spec:
 //                        obj.gitcheckout([url    : "https://github.com/rajeshmachagiri/application.git",
 //                                         branch : "main",
 //                                         credsID: "github-app-rajesh-jenkins"])
-//                        conf = configobj.readyaml()
+                        conf = configobj.readyaml()
 
                     }
                 }
