@@ -9,7 +9,7 @@ def call(String sam) {
     def npm = new Npm()
     AWS cloudobj = new Awsaction()
     Dockermain dockerobj = new Docker()
-    def conf
+    Map conf
     String ans
     pipeline {
         agent {
@@ -54,7 +54,7 @@ spec:
                                          credsID: "github-app-rajesh-jenkins"])
                         String sample1 = obj.libresource("configfile.yaml")
                         conf = obj.readyamlfun(sample1)
-                        sh "$conf['eks']"
+
 
 
                     }
