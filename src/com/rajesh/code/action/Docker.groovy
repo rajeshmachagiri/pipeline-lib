@@ -25,7 +25,7 @@ class Docker implements Dockermain {
     @Override
     def ecrlogin(String ans) {
         logintoken = ans.trim()
-        String command = "echo ${logintoken}|docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com"
+        String command = "set +x ; echo ${logintoken}|docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com"
         sample.shellsh(command)
     }
 
