@@ -53,7 +53,7 @@ spec:
                                          credsID: "github-app-rajesh-jenkins"])
                         String sample1 = obj.libresource("configfile.yaml")
                         def conf = obj.readyamlfun(sample1)
-                        println(conf["aws"])
+                        println(conf)
 
                     }
                 }
