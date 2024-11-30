@@ -4,11 +4,13 @@ import com.rajesh.code.action.Npm
 import com.rajesh.code.action.linuxcli
 import com.rajesh.code.steps.*
 import com.rajesh.code.rules.*
+import com.rajesh.code.config.*
 def call(String sam) {
     def obj = new linuxcli()
     def npm = new Npm()
     AWS cloudobj = new Awsaction()
     Dockermain dockerobj = new Docker()
+    configrule configobj = new configcontrol()
     Map conf
     String ans
     pipeline {
@@ -52,10 +54,7 @@ spec:
                         obj.gitcheckout([url    : "https://github.com/rajeshmachagiri/application.git",
                                          branch : "main",
                                          credsID: "github-app-rajesh-jenkins"])
-                        String sample1 = obj.libresource("configfile.yaml")
-                        conf = obj.readyamlfun(sample1)
-                        sh "${conf.eks.dev.region}"
-
+                        conf = configobj.readyaml()
 
                     }
                 }
