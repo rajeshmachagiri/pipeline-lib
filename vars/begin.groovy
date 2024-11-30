@@ -52,7 +52,7 @@ spec:
                                          branch : "main",
                                          credsID: "github-app-rajesh-jenkins"])
                         String sample1 = obj.libresource("configfile.yaml")
-                        obj.shellsh('echo "sample1"')
+                        obj.shellsh("echo ${sample1}")
                     }
                 }
             }
