@@ -54,6 +54,7 @@ spec:
                                          credsID: "github-app-rajesh-jenkins"])
                         String sample1 = obj.libresource("configfile.yaml")
                         conf = obj.readyamlfun(sample1)
+                        prinln(conf["eks"])
 
 
                     }
