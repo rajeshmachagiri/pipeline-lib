@@ -46,6 +46,6 @@ String libraryresource(String path){
 }
 
 def readyamlfun(String sam){
-       def sam1 = readYaml(sam)
+       def sam1 = readYaml(text: sam)
         return sam1
 }
