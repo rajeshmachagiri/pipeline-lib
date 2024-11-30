@@ -51,8 +51,6 @@ spec:
                         obj.gitcheckout([url    : "https://github.com/rajeshmachagiri/application.git",
                                          branch : "main",
                                          credsID: "github-app-rajesh-jenkins"])
-//                        Closure command = {obj.shellsh('echo $PASS')}
-//                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
                     }
                 }
             }
@@ -61,9 +59,6 @@ spec:
                     script{
                           obj.shellsh("ls ; pwd ")
                           obj.cd("./application/sample-nodejs/", {npm.npmintall()})
-//                        cloudobj.command("aws ecr get-login-password --region eu-central-1")
-//                        Closure command = {obj.shellsh('echo $PASS')}
-//                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
                     }
                 }
             }
@@ -80,19 +75,10 @@ spec:
                     container('dind') {
                             script {
                                   obj.shellsh("docker help")
-//                                String loginCmd = """
-//            set +x ;
-//            echo ${ans.trim()}|docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com
-//        """.stripIndent().toString()
                                   dockerobj.ecrlogin(ans)
                                   obj.shellsh("pwd ; ls")
-
-//                                obj.shellsh("docker tag ubuntu 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
-//                                obj.shellsh("docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
-
                                   obj.cd("./application/sample-nodejs/", { dockerobj.build() })
                                   dockerobj.push()
-//
                            }
                     }
                 }
