@@ -9,6 +9,7 @@ def call(String sam) {
     def npm = new Npm()
     AWS cloudobj = new Awsaction()
     Dockermain dockerobj = new Docker()
+    def conf
     String ans
     pipeline {
         agent {
@@ -52,8 +53,8 @@ spec:
                                          branch : "main",
                                          credsID: "github-app-rajesh-jenkins"])
                         String sample1 = obj.libresource("configfile.yaml")
-                        def conf = obj.readyamlfun(sample1)
-                        println(conf)
+                        conf = obj.readyamlfun(sample1)
+
 
                     }
                 }
