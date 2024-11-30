@@ -5,6 +5,7 @@ import com.rajesh.code.rules.Linuxclimain
 
 class Awsaction implements AWS {
     Linuxclimain obj = new linuxcli()
+    String ecrlogin = "aws ecr get-login-password --region eu-central-1"
     String creds
     String region
     Awsaction(String creds = "aws-own-creds",String region = "eu-west-1"){

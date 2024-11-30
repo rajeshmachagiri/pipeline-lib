@@ -63,8 +63,7 @@ spec:
                           obj.cd("./application/sample-nodejs/", {npm.npmintall()})
                           cloudobj.init()
                           obj.shellsh("aws help")
-                          ans = cloudobj.command({obj.shstdoutput("aws ecr get-login-password --region eu-central-1")})
-
+                          ans = dockerobj.ecrgettoken()
 //                        cloudobj.command("aws ecr get-login-password --region eu-central-1")
 //                        Closure command = {obj.shellsh('echo $PASS')}
 //                        obj.withcreds([credsID: "own-creds",pass: "PASS",user: "USER"], command)
@@ -77,11 +76,11 @@ spec:
                     container('dind') {
                             script {
                                 obj.shellsh("docker help")
-                                String loginCmd = """
-            set +x ;
-            echo ${ans.trim()}|docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com
-        """.stripIndent().toString()
-                                  obj.shellsh(loginCmd)
+//                                String loginCmd = """
+//            set +x ;
+//            echo ${ans.trim()}|docker login --username AWS --password-stdin 247083130299.dkr.ecr.eu-central-1.amazonaws.com
+//        """.stripIndent().toString()
+                                  dockerobj.ecrlogin(ans)
 //                                obj.shellsh("docker tag ubuntu 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 //                                obj.shellsh("docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore")
 
