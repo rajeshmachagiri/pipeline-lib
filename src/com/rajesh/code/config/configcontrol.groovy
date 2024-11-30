@@ -1,4 +1,4 @@
-package com.rajesh.code.config
-
-def sample = li
+//package com.rajesh.code.config
+//
+//def sample = li
 
