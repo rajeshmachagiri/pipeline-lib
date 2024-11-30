@@ -10,7 +10,7 @@ def call(String sam) {
     def npm = new Npm()
     AWS cloudobj = new Awsaction()
     Dockermain dockerobj = new Docker()
-    configrule configfunc = new configcontrol()
+    Configrule configfunc = new configcontrol("sam",obj)
     Map conf
     String ans
     pipeline {

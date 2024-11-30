@@ -1,6 +1,6 @@
 package com.rajesh.code.rules
 
-interface configrule {
+interface Configrule {
 
     def readyamlfun()
 

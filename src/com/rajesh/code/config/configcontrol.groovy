@@ -2,9 +2,9 @@ package com.rajesh.code.config
 
 import com.rajesh.code.action.linuxcli
 import com.rajesh.code.rules.Linuxclimain
-import com.rajesh.code.rules.configrule
+import com.rajesh.code.rules.Configrule
 
-class configcontrol implements configrule{
+class configcontrol implements Configrule{
     Linuxclimain obj
     String path
     Map conf
