@@ -4,7 +4,7 @@ import com.rajesh.code.action.linuxcli
 import com.rajesh.code.rules.Linuxclimain
 import com.rajesh.code.rules.configrule
 
-class configcontrol  implements configrule{
+class configcontrol implements configrule{
     Linuxclimain obj
     String path
     Map conf
