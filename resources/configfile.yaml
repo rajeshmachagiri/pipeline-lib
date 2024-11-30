@@ -1,7 +1,7 @@
-"aws":
-  "acc1":
+aws:
+  acc1:
     region: "india"
     id: "in"
-  "acc2":
+  acc2:
     region: "germany"
     id: "in"
