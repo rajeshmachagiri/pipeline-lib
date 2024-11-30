@@ -42,7 +42,8 @@ void withAWScreds(String creds, String region, Closure sample) {
 }
 
 String libraryresource(String path){
-        libraryResource path
+      def sam1 =  libraryResource path
+        return sam1
 }
 
 def readyamlfun(String sam){
