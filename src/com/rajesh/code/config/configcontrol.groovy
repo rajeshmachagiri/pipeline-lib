@@ -13,7 +13,7 @@ class configcontrol implements configrule{
         this.path = path
     }
 
-    def readyaml(){
+    def readyamlfun(){
         def text = obj.libresource(path)
         conf = obj.readyamlfun(text)
         return conf

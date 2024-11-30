@@ -2,9 +2,9 @@ import com.rajesh.code.action.Awsaction
 import com.rajesh.code.action.Docker
 import com.rajesh.code.action.Npm
 import com.rajesh.code.action.linuxcli
+import com.rajesh.code.config.configcontrol
 import com.rajesh.code.steps.*
 import com.rajesh.code.rules.*
-import com.rajesh.code.config.*
 def call(String sam) {
     def obj = new linuxcli()
     def npm = new Npm()
