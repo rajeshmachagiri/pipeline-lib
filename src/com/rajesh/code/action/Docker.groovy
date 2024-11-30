@@ -12,7 +12,7 @@ class Docker implements Dockermain {
 
     @Override
     def build() {
-        sample.shellsh("docker build .")
+        sample.shellsh("docker build -t dockerbuild-test .")
     }
 
     @Override
@@ -31,12 +31,12 @@ class Docker implements Dockermain {
 
     @Override
     def push() {
-        sample.shellsh("docker tag ${}")
-        sample.withcreds([credsID: sample , user: "demo" , pass: 123],{docker push})
+        sample.shellsh(""" docker tag dockerbuild-test:latest 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore ; 
+docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore """ )
     }
 
     @Override
     def dockerps() {
-        return null
+        sample.shellsh("docker ps")
     }
 }
