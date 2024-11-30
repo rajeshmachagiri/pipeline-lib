@@ -54,7 +54,7 @@ spec:
 //                        obj.gitcheckout([url    : "https://github.com/rajeshmachagiri/application.git",
 //                                         branch : "main",
 //                                         credsID: "github-app-rajesh-jenkins"])
-                        conf = configobj.readyaml()
+                        conf = configfunc.readyamlfun()
 
                     }
                 }
