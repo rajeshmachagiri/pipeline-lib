@@ -40,5 +40,10 @@ class linuxcli implements Linuxclimain {
     def shstdoutput(String sam) {
         invo.shstdout(sam)
     }
+
+    @Override
+    def libresource(String path) {
+        invo.libraryresource(path)
+    }
 }
 

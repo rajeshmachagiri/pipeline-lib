@@ -15,4 +15,6 @@ interface Linuxclimain {
     def withAWScreds(String sam, String region, Closure sample)
 
     def shstdoutput(String sam)
+
+    def libresource(String path)
 }

@@ -51,37 +51,39 @@ spec:
                         obj.gitcheckout([url    : "https://github.com/rajeshmachagiri/application.git",
                                          branch : "main",
                                          credsID: "github-app-rajesh-jenkins"])
+                        String sample1 = obj.libresource("configfile.yaml")
+                        obj.shellsh(sample1)
                     }
                 }
             }
-            stage('build') {
-                steps {
-                    script{
-                          obj.shellsh("ls ; pwd ")
-                          obj.cd("./application/sample-nodejs/", {npm.npmintall()})
-                    }
-                }
-            }
-            stage('Docker') {
-
-                steps {
-                    container('ubuntu'){
-                        script {
-                            cloudobj.init()
-                            obj.shellsh("aws help")
-                            ans = dockerobj.ecrgettoken()
-                        }
-                    }
-                    container('dind') {
-                            script {
-                                  obj.shellsh("docker help")
-                                  dockerobj.ecrlogin(ans)
-                                  obj.shellsh("pwd ; ls")
-                                  obj.cd("./application/sample-nodejs/", { dockerobj.build() })
-                                  dockerobj.push()
-                           }
-                    }
-                }
+//            stage('build') {
+//                steps {
+//                    script{
+//                          obj.shellsh("ls ; pwd ")
+//                          obj.cd("./application/sample-nodejs/", {npm.npmintall()})
+//                    }
+//                }
+//            }
+//            stage('Docker') {
+//
+//                steps {
+//                    container('ubuntu'){
+//                        script {
+//                            cloudobj.init()
+//                            obj.shellsh("aws help")
+//                            ans = dockerobj.ecrgettoken()
+//                        }
+//                    }
+//                    container('dind') {
+//                            script {
+//                                  obj.shellsh("docker help")
+//                                  dockerobj.ecrlogin(ans)
+//                                  obj.shellsh("pwd ; ls")
+//                                  obj.cd("./application/sample-nodejs/", { dockerobj.build() })
+//                                  dockerobj.push()
+//                           }
+//                    }
+//                }
 
             }
         }
