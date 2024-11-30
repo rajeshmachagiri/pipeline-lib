@@ -55,6 +55,7 @@ spec:
 //                                         branch : "main",
 //                                         credsID: "github-app-rajesh-jenkins"])
                         conf = configfunc.readyamlfun()
+                        sh "$conf"
 
                     }
                 }
