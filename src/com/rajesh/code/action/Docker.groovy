@@ -5,10 +5,14 @@ import com.rajesh.code.rules.Dockermain
 import com.rajesh.code.rules.Linuxclimain
 
 class Docker implements Dockermain {
-    Linuxclimain sample = new linuxcli()
-    AWS cloud = new Awsaction()
+    Linuxclimain sample
+    AWS cloud
     String logintoken
 
+    Docker(Linuxclimain sample = new linuxcli(),AWS cloud = new Awsaction() ){
+        this.sample = sample
+        this.cloud = cloud
+    }
 
     @Override
     def build() {
@@ -17,7 +21,7 @@ class Docker implements Dockermain {
 
     @Override
     String ecrgettoken() {
-        logintoken = cloud.command {sample.shstdoutput(cloud.ecrlogin)}
+        logintoken = cloud.command {sample.shstdoutput("aws ecr get-login-password --region eu-central-1")}
         return logintoken
     }
 

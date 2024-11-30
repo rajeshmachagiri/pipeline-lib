@@ -5,12 +5,12 @@ import com.rajesh.code.rules.Linuxclimain
 
 class Awsaction implements AWS {
     Linuxclimain obj = new linuxcli()
-    String ecrlogin = "aws ecr get-login-password --region eu-central-1"
     String creds
     String region
-    Awsaction(String creds = "aws-own-creds",String region = "eu-west-1"){
+    Awsaction(String creds = "aws-own-creds",String region = "eu-west-1",Linuxclimain obj = new linuxcli()){
         this.creds= creds
         this.region = region
+        this.obj = obj
     }
 
     @Override
@@ -30,5 +30,6 @@ apt install mandoc -y
     def command(Closure sample) {
         obj.withAWScreds(creds,region,sample)
     }
+
 
 }
