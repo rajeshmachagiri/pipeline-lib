@@ -17,4 +17,6 @@ interface Linuxclimain {
     def shstdoutput(String sam)
 
     def libresource(String path)
+
+    def readyamlfun(String sam)
 }

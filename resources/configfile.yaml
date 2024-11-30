@@ -1,1 +1,7 @@
-"sample23" : "dev"
+"aws":
+  "acc1":
+    region: "india"
+    id: "in"
+  "acc2":
+    region: "germany"
+    id: "in"

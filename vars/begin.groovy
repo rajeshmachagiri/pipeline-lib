@@ -52,7 +52,9 @@ spec:
                                          branch : "main",
                                          credsID: "github-app-rajesh-jenkins"])
                         String sample1 = obj.libresource("configfile.yaml")
-                        obj.shellsh("echo ${sample1}")
+                        def conf = obj.readyamlfun(sample1)
+                        println(conf["aws"])
+
                     }
                 }
             }

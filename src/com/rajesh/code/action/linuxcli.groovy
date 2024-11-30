@@ -45,5 +45,10 @@ class linuxcli implements Linuxclimain {
     def libresource(String path) {
         invo.libraryresource(path)
     }
+
+    @Override
+    def readyamlfun(String sam) {
+        invo.readyamlfun(sam)
+    }
 }
 

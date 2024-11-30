@@ -44,3 +44,7 @@ void withAWScreds(String creds, String region, Closure sample) {
 String libraryresource(String path){
         libraryResource path
 }
+
+def readyamlfun(String sam){
+        readYaml(sam)
+}
