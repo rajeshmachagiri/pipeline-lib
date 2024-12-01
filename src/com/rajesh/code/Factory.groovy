@@ -7,17 +7,13 @@ import com.rajesh.code.rules.Configrule
 import com.rajesh.code.rules.Dockermain
 
 class Factory {
-    String same
     static def init(){
         Configrule sam = new configcontrol()
         Map config = sam.readyamlfun()
         config = sam.getcredsconfig(config)
 //        awsobj = config[account]
 //        return awsobj
-        this.same = config
         return config
-
-
     }
 
     static AWS getawsobj(String account){
