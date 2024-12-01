@@ -11,6 +11,7 @@ def call(String sam) {
     def npm = new Npm()
     AWS cloudobj
     Dockermain dockerobj
+    HELM helmobj
     Map conf
     String ans
     pipeline {
@@ -94,7 +95,9 @@ spec:
             stage("helm") {
                 steps {
                     script {
-                        obj.shellsh("echo 'helm install .......'")
+                        helmobj = Factory.gethelmobj(cloudobj)
+                        helmobj.init()
+                        helmobj.command()
                     }
                 }
             }

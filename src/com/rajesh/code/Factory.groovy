@@ -1,10 +1,12 @@
 package com.rajesh.code
 
 import com.rajesh.code.action.Docker
+import com.rajesh.code.action.helmcls
 import com.rajesh.code.config.configcontrol
 import com.rajesh.code.rules.AWS
 import com.rajesh.code.rules.Configrule
 import com.rajesh.code.rules.Dockermain
+import com.rajesh.code.rules.HELM
 
 class Factory {
     static def init(){
@@ -23,6 +25,10 @@ class Factory {
 
     static Dockermain getdocobj(AWS sam){
         return new Docker(sam)
+    }
+
+    static HELM gethelmobj(AWS sam){
+        return new helmcls(sam)
     }
 
 }
