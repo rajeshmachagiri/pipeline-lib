@@ -44,11 +44,6 @@ spec:
                     script {
                         obj.shellsh("echo 'Welcome, String the pipeline'")
                         obj.shellsh("touch sample-doc")
-//                        conf = configfunc.readyamlfun()
-//                        conf = configfunc.getcredsconfig(conf)
-//                        cloudobj = conf["account2"]
-//                        dockerobj = new Docker(obj,cloudobj)
-//
                         cloudobj = Factory.getawsobj("account2")
                         dockerobj = Factory.getdocobj(cloudobj)
 
