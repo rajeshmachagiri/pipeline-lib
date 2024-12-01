@@ -97,8 +97,10 @@ spec:
 
             }
             stage("helm") {
-                script {
-                    obj.shellsh("echo 'helm install .......'")
+                steps {
+                    script {
+                        obj.shellsh("echo 'helm install .......'")
+                    }
                 }
             }
         }
