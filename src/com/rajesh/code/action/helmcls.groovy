@@ -10,7 +10,7 @@ Linuxclimain obj = new linuxcli()
         this.awsobjmain = awsobj
     }
     def init(){
-        obj.shellsh("echo 'install kubectl ctl , helm")
+        obj.shellsh("echo 'install kubectl ctl , helm'")
     }
 
     def command(){
