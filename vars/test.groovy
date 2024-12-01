@@ -20,3 +20,6 @@ awsMap["aws"].each {k,v ->
 
 
 println(res["account2"])
+
+
+// above code is used for testing the MAP function
