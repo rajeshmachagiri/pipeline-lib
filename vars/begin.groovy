@@ -1,3 +1,4 @@
+import com.rajesh.code.Factory
 import com.rajesh.code.action.Awsaction
 import com.rajesh.code.action.Docker
 import com.rajesh.code.action.Npm
@@ -9,7 +10,6 @@ def call(String sam) {
     def obj = new linuxcli()
     def npm = new Npm()
     AWS cloudobj
-    Configrule configfunc = new configcontrol()
     Dockermain dockerobj
     Map conf
     String ans
@@ -44,10 +44,15 @@ spec:
                     script {
                         obj.shellsh("echo 'Welcome, String the pipeline'")
                         obj.shellsh("touch sample-doc")
-                        conf = configfunc.readyamlfun()
-                        conf = configfunc.getcredsconfig(conf)
-                        cloudobj = conf["account2"]
-                        dockerobj = new Docker(obj,cloudobj)
+//                        conf = configfunc.readyamlfun()
+//                        conf = configfunc.getcredsconfig(conf)
+//                        cloudobj = conf["account2"]
+//                        dockerobj = new Docker(obj,cloudobj)
+//
+                        cloudobj = Factory.getawsobj("account2")
+                        dockerobj = Factory.getdocobj(cloudobj)
+
+
                     }
                 }
             }
@@ -90,6 +95,9 @@ spec:
                     }
                 }
 
+            }
+            stage("helm") {
+                        obj.shellsh("echo 'helm install .......'")
             }
         }
     }

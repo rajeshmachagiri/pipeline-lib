@@ -5,13 +5,12 @@ import com.rajesh.code.rules.Dockermain
 import com.rajesh.code.rules.Linuxclimain
 
 class Docker implements Dockermain {
-    Linuxclimain sample
+    Linuxclimain sample = new linuxcli()
     AWS cloud
     String logintoken
 
 
-    Docker(Linuxclimain sample = new linuxcli(),AWS cloud = new Awsaction() ){
-        this.sample = sample
+    Docker(AWS cloud = new Awsaction() ){
         this.cloud = cloud
     }
 
