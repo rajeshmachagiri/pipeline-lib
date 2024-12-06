@@ -35,8 +35,8 @@ class Docker implements Dockermain {
 
     @Override
     def push() {
-        sample.shellsh(""" docker tag dockerbuild-test:latest 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore ; 
-docker push 247083130299.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore """ )
+        sample.shellsh(""" docker tag dockerbuild-test:latest ***.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore ; 
+docker push ***.dkr.ecr.eu-central-1.amazonaws.com/dockerbuild-test:try-ignore """ )
     }
 
     @Override
